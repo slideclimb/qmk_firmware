@@ -3,6 +3,9 @@
 
 #pragma once
 
+#define TAPPING_TOGGLE 2
+#define ONESHOT_TAG_TOGGLE 3
+
 #define SERIAL_USART_FULL_DUPLEX   // Enable full duplex operation mode.
 #define SERIAL_USART_TX_PIN B6     // USART TX pin
 #define SERIAL_USART_RX_PIN B7     // USART RX pin
