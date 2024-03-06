@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0
 
 #include QMK_KEYBOARD_H
+#include "oneshot.h"
 
 // Aliases.
 #define OS_LGUI OSM(MOD_LGUI)
@@ -13,6 +14,13 @@
 #define COPY LCTL(KC_C)
 #define PASTE LCTL(KC_V)
 #define UNDO LCTL(KC_Z)
+
+enum keycodes {
+    OS_SFT = SAFE_RANGE,
+    OS_CTL,
+    OS_ALT,
+    OS_GUI,
+};
 
 enum layers {
     DVORAK,
@@ -121,3 +129,72 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             _______, _______, _______,        _______, _______, _______
     )
 */
+
+bool is_oneshot_cancel_key(uint16_t keycode) {
+    switch (keycode) {
+    case NUMBERS:
+        return true;
+    default:
+        return false;
+    }
+}
+
+bool is_oneshot_layer_cancel_key(uint16_t keycode) {
+    switch (keycode) {
+    case NUMBERS:
+        return true;
+    default:
+        return false;
+    }
+}
+
+bool is_oneshot_ignored_key(uint16_t keycode) {
+    switch (keycode) {
+    case NUMBERS:
+    case OS_CTL:
+    case OS_ALT:
+    case OS_GUI:
+    case OS_SFT:
+        return true;
+    default:
+        return false;
+    }
+}
+
+bool is_oneshot_mod_key(uint16_t keycode) {
+    switch (keycode) {
+    case OS_CTL:
+    case OS_ALT:
+    case OS_GUI:
+    case OS_SFT:
+        return true;
+    default:
+        return false;
+    }
+}
+
+oneshot_state os_ctrl_state = os_up_unqueued;
+oneshot_state os_alt_state = os_up_unqueued;
+oneshot_state os_cmd_state = os_up_unqueued;
+oneshot_state os_sft_state = os_up_unqueued;
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    update_oneshot(
+        &os_ctrl_state, KC_LCTL, OS_CTL,
+        keycode, record
+    );
+    update_oneshot(
+        &os_alt_state, KC_LALT, OS_ALT,
+        keycode, record
+    );
+    update_oneshot(
+        &os_cmd_state, KC_LGUI, OS_GUI,
+        keycode, record
+    );
+    update_oneshot(
+        &os_sft_state, KC_LSFT, OS_SFT,
+        keycode, record
+    );
+
+    return true;
+}
