@@ -12,6 +12,7 @@
 #define CUT LCTL(KC_X)
 #define COPY LCTL(KC_C)
 #define PASTE LCTL(KC_V)
+#define UNDO LCTL(KC_Z)
 
 enum layers {
     DVORAK,
@@ -68,10 +69,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *                       └───┘   └───┘
       */
     [DVORAK] = LAYOUT_split_3x6_3(
-         KC_ESC, KC_QUOT, KC_COMMA,   KC_DOT,    KC_P,    KC_Y,                            KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_BSPC,
-         KC_TAB,    KC_A,     KC_O,     KC_E,    KC_U,    KC_I,                            KC_D,    KC_H,    KC_T,    KC_N,    KC_S,     KC_ENT,
-        KC_LSFT, KC_SCLN,     KC_Q,     KC_J,    KC_K,    KC_X,                            KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    TG(QWERTY),
-                                  TT(NAVIGATION), KC_LSFT, TT(NUMBERS),             TT(SYMBOLS),  KC_SPC, TT(FUNCTIONS)
+           KC_ESC, KC_QUOT, KC_COMMA,   KC_DOT,    KC_P,    KC_Y,                            KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_BSPC,
+         KC_MINUS,    KC_A,     KC_O,     KC_E,    KC_U,    KC_I,                            KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_SLSH,
+       TG(QWERTY), KC_SCLN,     KC_Q,     KC_J,    KC_K,    KC_X,                            KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_EXLM,
+                                   TT(NAVIGATION), KC_LSFT, TT(NUMBERS),             TT(SYMBOLS),  KC_SPC, TT(FUNCTIONS)
     ),
     [QWERTY] = LAYOUT_split_3x6_3(
             KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
@@ -82,19 +83,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [NUMBERS] = LAYOUT_split_3x6_3(
         _______, _______, KC_LCBR, KC_LPRN, KC_LBRC, _______,                          KC_PSLS,    KC_7,    KC_8,    KC_9, KC_PPLS, _______,
         _______, OS_LGUI, OS_LALT, OS_LCTL, OS_LSFT, _______,                          KC_PAST,    KC_4,    KC_5,    KC_6, KC_PMNS, KC_X,
-        _______, _______, KC_RCBR, KC_RPRN, KC_RBRC, _______,                           KC_EQL,    KC_1,    KC_2,    KC_3, KC_QUES, _______,
+        _______, _______, KC_RCBR, KC_RPRN, KC_RBRC, _______,                           KC_EQL,    KC_1,    KC_2,    KC_3, KC_CIRC, KC_UNDS,
                                             _______, _______, _______,         KC_DOT,  KC_SPC,    KC_0
     ),
     [SYMBOLS] = LAYOUT_split_3x6_3(
         KC_PERC, KC_BSLS,   KC_LT,   KC_GT,  KC_EQL,  KC_GRV,                          _______, KC_RBRC, KC_RPRN, KC_RCBR, _______, _______,
         KC_CIRC, KC_SLSH, KC_LCBR, KC_LPRN, KC_LBRC, KC_MINS,                          _______, OS_LSFT, OS_LCTL, OS_LALT, OS_LGUI, _______,
         KC_ASTR, _______, _______, KC_NUHS, KC_PLUS, KC_EXLM,                          _______, _______, _______, _______, _______, _______,
-                                            _______, KC_LCTL, KC_SPC,        _______, _______, _______
+                                            _______,  KC_SPC, KC_LCTL,        _______, _______, _______
     ),
     [NAVIGATION] = LAYOUT_split_3x6_3(
-        _______, _______, _______, _______, _______, _______,                          _______, KC_HOME,   KC_UP,  KC_END, _______, _______,
+        _______, _______, _______, _______, _______, _______,                          _______, KC_HOME,   KC_UP,  KC_END,  KC_INS, _______,
         _______, OS_LGUI, OS_LALT, OS_LCTL, OS_LSFT, _______,                          _______, KC_LEFT, KC_DOWN, KC_RGHT,  KC_ENT, _______,
-        _______, _______,     CUT,    COPY,   PASTE, _______,                          _______, KC_PGDN, KC_PGUP, _______, _______, _______,
+        _______,    UNDO,     CUT,    COPY,   PASTE, _______,                          _______, KC_PGUP, KC_PGDN, _______, _______, _______,
                                             _______, _______, _______,        _______, KC_LCTL, _______
     ),
     [FUNCTIONS] = LAYOUT_split_3x6_3(
