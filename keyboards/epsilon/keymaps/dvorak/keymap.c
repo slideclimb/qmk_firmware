@@ -80,10 +80,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *                       └───┘   └───┘
       */
     [DVORAK] = LAYOUT_split_3x6_3(
-           KC_ESC, KC_QUOT, KC_COMMA,   KC_DOT,    KC_P,    KC_Y,                            KC_F,    KC_G,    KC_C,    KC_R,    KC_L, KC_BSPC,
+          CW_TOGG, KC_QUOT, KC_COMMA,   KC_DOT,    KC_P,    KC_Y,                            KC_F,    KC_G,    KC_C,    KC_R,    KC_L,  KC_EQL,
          KC_MINUS, LFT_GUI,  LFT_ALT,  LFT_CTL, LFT_SFT,    KC_I,                            KC_D, RGT_SFT, RGT_CTL, RGT_ALT, RGT_GUI, KC_SLSH,
        TG(QWERTY), KC_SCLN,     KC_Q,     KC_J,    KC_K,    KC_X,                            KC_B,    KC_M,    KC_W,    KC_V,    KC_Z, KC_EXLM,
-                                   TT(NAVIGATION), KC_LSFT, TT(NUMBERS),             TT(SYMBOLS),  KC_SPC, TT(FUNCTIONS)
+                                   TT(NAVIGATION), QK_REP, TT(NUMBERS),             TT(SYMBOLS),  KC_SPC, TT(FUNCTIONS)
     ),
     [QWERTY] = LAYOUT_split_3x6_3(
             KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
@@ -104,8 +104,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             _______,  KC_SPC, _______,        _______, _______, _______
     ),
     [NAVIGATION] = LAYOUT_split_3x6_3(
-        _______, _______, _______, _______, _______, _______,                          _______, KC_HOME,   KC_UP,  KC_END,  KC_INS, _______,
-        _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _______,                          _______, KC_LEFT, KC_DOWN, KC_RGHT,  KC_ENT, _______,
+        _______, _______, _______,KC_PAUSE, KC_MUTE, KC_VOLU,                          _______, KC_HOME,   KC_UP,  KC_END,  KC_INS, _______,
+        _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_VOLD,                          _______, KC_LEFT, KC_DOWN, KC_RGHT,  KC_ENT, _______,
         _______,    UNDO,     CUT,    COPY,   PASTE, _______,                          _______, KC_PGUP, KC_PGDN, _______, _______, _______,
                                             _______, _______, _______,        _______, _______, _______
     ),
@@ -113,7 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           KC_F1,   KC_F2,   KC_F3,   KC_F4,  KC_F10,  KC_F11,                          _______, _______, _______, _______, _______, _______,
           KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F12,                          _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, _______,
         _______, _______, _______, _______, _______, _______,                          _______, _______, _______, _______, _______, _______,
-                                            _______, _______, _______,        _______, _______, _______
+                                            _______,  KC_TAB, _______,        _______, _______, _______
     ),
     [MOUSE] = LAYOUT_split_3x6_3(
         TG(MOUSE), _______, _______, _______, KC_BTN2, _______,                          _______, KC_WH_D, KC_MS_U, KC_WH_U, _______, _______,
