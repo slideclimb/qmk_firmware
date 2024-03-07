@@ -1,4 +1,5 @@
 #include "oneshot.h"
+#include "print.h"
 
 void update_oneshot(
     oneshot_state *state,
@@ -9,12 +10,14 @@ void update_oneshot(
 ) {
     if (keycode == trigger) {
         if (record->event.pressed) {
+            dprintf("oneshot down %d\n", mod);
             // Trigger keydown
             if (*state == os_up_unqueued) {
                 register_code(mod);
             }
             *state = os_down_unused;
         } else {
+            dprintf("oneshot up %d\n", mod);
             // Trigger keyup
             switch (*state) {
             case os_down_unused:

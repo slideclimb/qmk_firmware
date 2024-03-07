@@ -90,25 +90,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ),
     [NUMBERS] = LAYOUT_split_3x6_3(
         _______, _______, KC_LCBR, KC_LPRN, KC_LBRC, _______,                          KC_PSLS,    KC_7,    KC_8,    KC_9, KC_PPLS, _______,
-        _______, OS_LGUI, OS_LALT, OS_LCTL, OS_LSFT, _______,                          KC_PAST,    KC_4,    KC_5,    KC_6, KC_PMNS, KC_X,
+        _______, OS_GUI, OS_ALT, OS_CTL, OS_SFT, _______,                          KC_PAST,    KC_4,    KC_5,    KC_6, KC_PMNS, KC_X,
         _______, _______, KC_RCBR, KC_RPRN, KC_RBRC, _______,                           KC_EQL,    KC_1,    KC_2,    KC_3, KC_CIRC, KC_UNDS,
                                             _______, _______, _______,         KC_DOT,  KC_SPC,    KC_0
     ),
     [SYMBOLS] = LAYOUT_split_3x6_3(
         KC_PERC, KC_BSLS,   KC_LT,   KC_GT,  KC_EQL,  KC_GRV,                          _______, KC_RBRC, KC_RPRN, KC_RCBR, _______, _______,
-        KC_CIRC, KC_SLSH, KC_LCBR, KC_LPRN, KC_LBRC, KC_MINS,                          _______, OS_LSFT, OS_LCTL, OS_LALT, OS_LGUI, _______,
+        KC_CIRC, KC_SLSH, KC_LCBR, KC_LPRN, KC_LBRC, KC_MINS,                          _______, OS_SFT, OS_CTL, OS_ALT, OS_GUI, _______,
         KC_ASTR, _______, _______, KC_NUHS, KC_PLUS, KC_EXLM,                          _______, _______, _______, _______, _______, _______,
                                             _______,  KC_SPC, KC_LCTL,        _______, _______, _______
     ),
     [NAVIGATION] = LAYOUT_split_3x6_3(
         _______, _______, _______, _______, _______, _______,                          _______, KC_HOME,   KC_UP,  KC_END,  KC_INS, _______,
-        _______, OS_LGUI, OS_LALT, OS_LCTL, OS_LSFT, _______,                          _______, KC_LEFT, KC_DOWN, KC_RGHT,  KC_ENT, _______,
+        _______, OS_GUI, OS_ALT, OS_CTL, OS_SFT, _______,                          _______, KC_LEFT, KC_DOWN, KC_RGHT,  KC_ENT, _______,
         _______,    UNDO,     CUT,    COPY,   PASTE, _______,                          _______, KC_PGUP, KC_PGDN, _______, _______, _______,
                                             _______, _______, _______,        _______, KC_LCTL, _______
     ),
     [FUNCTIONS] = LAYOUT_split_3x6_3(
           KC_F1,   KC_F2,   KC_F3,   KC_F4,  KC_F10,  KC_F11,                          _______, _______, _______, _______, _______, _______,
-          KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F12,                          _______, OS_LSFT, OS_LCTL, OS_LALT, OS_LGUI, _______,
+          KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F12,                          _______, OS_SFT, OS_CTL, OS_ALT, OS_GUI, _______,
         _______, _______, _______, _______, _______, _______,                          _______, _______, _______, _______, _______, _______,
                                             _______, KC_LCTL, _______,        _______, _______, _______
     ),
@@ -188,7 +188,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         keycode, record
     );
     update_oneshot(
-        &os_cmd_state, KC_LGUI, OS_GUI,
+        &os_cmd_state, KC_LGUI, OS_GUI,-
         keycode, record
     );
     update_oneshot(
@@ -197,4 +197,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     );
 
     return true;
+}
+
+void keyboard_post_init_user(void) {
+    debug_enable=true;
 }
