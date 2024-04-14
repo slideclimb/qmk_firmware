@@ -22,6 +22,7 @@
 
 #define OPN_DBG LALT(KC_5)
 #define OPN_RUN LALT(KC_4)
+#define NAV_TO LCTL(KC_B)
 
 #define CUT LCTL(KC_X)
 #define COPY LCTL(KC_C)
@@ -107,14 +108,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             _______,  KC_SPC, _______,        _______, _______, _______
     ),
     [NAVIGATION] = LAYOUT_split_3x6_3(
-        _______, _______, _______,KC_PAUSE, KC_MUTE, KC_VOLU,                          _______, KC_HOME,   KC_UP,  KC_END,  KC_INS, _______,
-        _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_VOLD,                          _______, KC_LEFT, KC_DOWN, KC_RGHT,  KC_ENT, _______,
-        _______,    UNDO,     CUT,    COPY,   PASTE, _______,                          _______, KC_PGUP, KC_PGDN, _______, _______, _______,
+        _______, _______, _______,KC_PAUSE, KC_MUTE, KC_VOLU,                          _______, _______, KC_HOME,  KC_END,  KC_INS, _______,
+        _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_VOLD,                          _______, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  KC_ENT,
+        _______,    UNDO,     CUT,    COPY,   PASTE, _______,                          _______, _______, KC_PGDN, KC_PGUP, _______, _______,
                                             _______, _______, _______,        _______, _______, _______
     ),
     [FUNCTIONS] = LAYOUT_split_3x6_3(
           KC_F1,   KC_F2,   KC_F3,   KC_F4,  KC_F10,  KC_F11,                          _______, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, _______,
-          KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F12,                          _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, _______,
+          KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F12,                           NAV_TO, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, _______,
         _______, _______, _______, _______, _______, _______,                          _______, OPN_DBG, OPN_RUN, _______, _______, _______,
                                             _______,  KC_TAB, _______,        _______, _______, _______
     ),
