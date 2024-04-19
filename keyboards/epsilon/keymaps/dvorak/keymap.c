@@ -84,8 +84,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *                       └───┘   └───┘
       */
     [DVORAK] = LAYOUT_split_3x6_3(
-          CW_TOGG, KC_QUOT, KC_COMMA,   KC_DOT,    KC_P,    KC_Y,                            KC_F,    KC_G,    KC_C,    KC_R,    KC_L,  KC_EQL,
-         KC_MINUS, LFT_GUI,  LFT_ALT,  LFT_CTL, LFT_SFT,    KC_I,                            KC_D, RGT_SFT, RGT_CTL, RGT_ALT, RGT_GUI, KC_SLSH,
+          CW_TOGG, KC_QUOT, KC_COMMA,   KC_DOT,    KC_P,    KC_Y,                            KC_F,    KC_G,    KC_C,    KC_R,    KC_SLSH,  KC_EQL,
+         KC_MINUS, LFT_GUI,  LFT_ALT,  LFT_CTL, LFT_SFT,    KC_I,                            KC_D, RGT_SFT, RGT_CTL, RGT_ALT, RGT_GUI, KC_L,
        TG(QWERTY), KC_SCLN,     KC_Q,     KC_J,    KC_K,    KC_X,                            KC_B,    KC_M,    KC_W,    KC_V,    KC_Z, KC_EXLM,
                                    TT(NAVIGATION), QK_REP, TT(NUMBERS),             TT(SYMBOLS),  KC_SPC, TT(FUNCTIONS)
     ),
