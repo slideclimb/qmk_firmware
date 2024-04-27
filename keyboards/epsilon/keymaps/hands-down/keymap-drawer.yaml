@@ -1,0 +1,47 @@
+# Paste this yaml into https://keymap-drawer.streamlit.app/ to generate layout image.
+layout: {qmk_keyboard: epsilon, qmk_layout: LAYOUT_split_3x6_3}
+layers:
+  HANDS_DOWN:
+    - [CAPS_WORD, {t: ;, s: ':'}, F, M, P, V, {t: /, s: '?'}, {t: ., s: '>'}, Q, {t: '''', s: '"'}, Z, {t: '=', s: '+'}]
+    - [W, {t: R, h: LGUI}, {t: S, h: LALT}, {t: N, h: LCTL}, {t: T, h: LSFT}, B, {t: ',', s: '<'}, {t: A, h: LSFT}, {t: E, h: LCTL}, {t: I, h: LALT}, {t: H, h: LGUI}, J]
+    - [TO(DVORAK), X, C, L, D, G, {t: '-', s: '_'}, U, O, Y, K, '!']
+    - [TT(NAVIGATION), REPEAT, TT(NUMBERS),  TT(SYMBOLS), ␣, TT(FUNCTIONS)]
+  NAVIGATION:
+    - ['', '', DEL_LINE, PAUSE, MUTE, VOL_UP, '', '', HOME, END, INS, '']
+    - ['', LGUI, LALT, LCTL, LSFT, VOL_DOWN, NAV_TO, ←, ↓, ↑, →, ENT]
+    - ['', UNDO, CUT, COPY, PASTE, '', '', '', PGDN, PGUP, '', '']
+    - [{t: '', type: held}, '', '',  TT(SYMBOLS), ␣, TT(FUNCTIONS)]
+  NUMBERS:
+    - ['', '', '{', '(', '[', '', /, {t: 7, s: '&'}, {t: 8, s: '*'}, {t: 9, s: '('}, +, '']
+    - ['', LGUI, LALT, LCTL, LSFT, ',', '*', {t: 4, s: '$'}, {t: 5, s: '%'}, {t: 6, s: '^'}, '-', x]
+    - ['', '', '}', ')', ']', '', '=', {t: 1, s: '!'}, {t: 2, s: '@'}, {t: 3, s: '#'}, ^, _]
+    - ['', '', {t: '', type: held}, ., ␣, {t: 0, s: ')'}]
+  SYMBOLS:
+    - ['', '%', '<', '>', {t: '=', s: '+'}, {t: '`', s: '~'}, '', ']', ')', '}', '', '']
+    - ['^', {t: /, s: '?'}, '{', '(', '[', {t: '-', s: '_'}, '', LSFT, LCTL, LALT, LGUI, '']
+    - ['', '*', '#', {t: '\', s: '|'}, '+', '!', '', '', '', '', '', '']
+    - [TT(NAVIGATION), ␣, TT(NUMBERS), {t: '', type: held}, '', '']
+  FUNCTIONS:
+    - [F1, F2, F3, F4, F10, F11, '', ←, ↓, ↑, →, '']
+    - [F5, F6, F7, F8, F9, F12, NAV_TO, LSFT, LCTL, LALT, LGUI, '']
+    - ['', '', '', '', '', '', '', OPN_DBG, OPN_RUN, '', '', '']
+    - [TT(NAVIGATION), TAB, TT(NUMBERS), '', '', {t: '', type: held}]
+  MOUSE:
+    - [TG(MOUSE), '', '', '', LFT_CLK, '', '', '', SCRL_DN, SCRL_UP, '', '']
+    - ['', SLOW, MID, FAST, CLICK, '', '', MS_←, MS_↓, MS_↑, MS_→, '']
+    - ['', '', '', '', MID_CLK, '', '', '', '', '', '', '']
+    - ['', '', '', '', '', '']
+  DVORAK: [
+    CAPS_WORD, '''', ',', ., P, Y, F, G, C, R, /, '=',
+    '-', A, O, E, U, I, D, H, T, N, S, L,
+    TO(HANDS_DOWN), ;, Q, J, K, X, B, M, W, V, Z, '!',
+    TT(NAVIGATION), REREAT, TT(NUMBERS), TT(SYMBOLS), SPC, TT(FUNCTIONS)
+  ]
+combos:
+  - { p: [2, 3], k: ESC, l: [HANDS_DOWN, DVORAK, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [8, 9], k: ESC, l: [HANDS_DOWN, DVORAK, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [13, 14], k: TAB, l: [HANDS_DOWN, DVORAK, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [15, 16], k: DEL, l: [HANDS_DOWN, DVORAK, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [19, 20], k: BSPC, l: [HANDS_DOWN, DVORAK, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [21, 22], k: ENT, l: [HANDS_DOWN, DVORAK, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [37, 40], k: TG(MOUSE), l: [HANDS_DOWN, DVORAK, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }

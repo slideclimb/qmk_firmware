@@ -1,30 +1,43 @@
-# cantor
+# Epsilon
+![epsilon](epsilon.jpg)
+42 key split keyboard, based on and inspired by the Cantor, Ferris Sweep, and Corne keyboards.
 
-![cantor](https://i.imgur.com/Uvxm3zVh.jpg)
+## Hardware and build guide
+See [slideclimb/epsilon](https://github.com/slideclimb/epsilon/blob/master/README.md#build-guide).
 
-The Cantor keyboard is a 42 key diodeless split keyboard, designed with simplicity in mind. It is inspired on the popular [corne](https://github.com/foostan/crkbd), [ferris](https://github.com/pierrechevalier83/ferris) and [sweep](https://github.com/davidphilipbarr/Sweep) keyboards, aiming to provide a more ergonomic (stronger column stagger) corne-like layout with a simple, easy to assemble and cheap design.
+## Firmware
 
-* Keyboard Maintainer: [Diego Palacios](https://github.com/diepala)
-* Hardware Supported: Blackpill STM32F401
-* Hardware Availability: https://github.com/diepala/cantor
+### Compiling and flashing
 
-Make example for this keyboard (after setting up your build environment):
+1. Set up QMK (don't forget the [udev rules](https://github.com/qmk/qmk_firmware/blob/master/docs/faq_build.md#linux-udev-rules-idlinux-udev-rules) if on linux).
+2. Compile the keymap with `make epsilon:default`.
+3. Connect the keyboard in bootloader mode.
+4. Flash the keymap with `make epsilon:default:flash`.
 
-    make cantor:default
+> [!CAUTION]
+> Never connect or disconnect the TRRS cable while the keyboard is plugged in with the USB.
+> Doing so might damage the controller.
+ 
+> [!TIP]
+> Create a Makefile run configuration so you can start the flash with the mouse while the keyboard is in bootloader mode.
+> Use the following settings:
+> - Makefile: `<path_to_qmk_repo>/qmk_firmware/Makefile`
+> - Arguments: `epsilon:default:flash`
+> - Working Directory: `<path_to_qmk_repo>/qmk_firmware`
 
-Flashing example for this keyboard:
+When updating the layout afterward it's [often](https://docs.keeb.io/flashing-firmware/#do-i-need-to-flash-both-halves-of-a-split-keyboard) enough to only flash the half connected with USB (the left half).
 
-    make cantor:default:flash
+### Blackpill bootloader
+Blackpills are known to be possibly problematic to get into bootloader mode the first time.
+First, try the following:
 
-See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).
+1. Connect the Blackpill to the computer with a USB cable.
+2. Press and hold the BOOT0 button.
+3. Press and release the NRST button.
+4. Release the BOOT0 button.
+5. Check if the keyboard is in bootloader mode, e.g. with `dfu-util`.
 
-## Bootloader
-
-Enter the bootloader in 3 ways:
-
-* **Bootmagic reset**: Hold down the top left key and plug in the keyboard. For the right side, hold the top right key and plug the keyboard.
-* **Physical reset button**: 
-  * Press and hold the BOOT0 button.
-  * Press and release the NRST button.
-  * Release the BOOT0 button.
-* **Keycode in layout**: Press the key mapped to `QK_BOOT` if it is available
+If this doesn't work (it didn't for me on both of the Blackpills) then try steps 2-4 while connecting pin `A10` to `GND`.
+After flashing the firmware once, getting into the bootloader should be much easier thanks to bootmagic.
+When flashing the left half, hold the top-left key and then plug in the USB cable.
+Hold the top-right key when flashing the right half.
