@@ -8,7 +8,7 @@ layers:
     - [TT(NAVIGATION), REPEAT, TT(NUMBERS),  TT(SYMBOLS), ␣, TT(FUNCTIONS)]
   NAVIGATION:
     - ['', '', DEL_LINE, PAUSE, MUTE, VOL_UP, '', '', HOME, END, INS, '']
-    - ['', LGUI, LALT, LCTL, LSFT, VOL_DOWN, NAV_TO, ←, ↓, ↑, →, ENT]
+    - [Print Screen, LGUI, LALT, LCTL, LSFT, VOL_DOWN, NAV_TO, ←, ↓, ↑, →, ENT]
     - ['', UNDO, CUT, COPY, PASTE, '', '', '', PGDN, PGUP, '', '']
     - [{t: '', type: held}, '', '',  TT(SYMBOLS), ␣, TT(FUNCTIONS)]
   NUMBERS:
