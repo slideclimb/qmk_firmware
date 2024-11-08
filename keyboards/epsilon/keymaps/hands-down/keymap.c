@@ -42,7 +42,7 @@
 
 enum layers {
     HANDS_DOWN,
-    DVORAK,
+    QWERTY,
     NUMBERS,
     NAVIGATION,
     SYMBOLS,
@@ -83,19 +83,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [HANDS_DOWN] = LAYOUT_split_3x6_3(
            CW_TOGG, KC_SCLN,    KC_F,    KC_M,    KC_P,    KC_V,                          KC_SLSH,  KC_DOT,    KC_Q, KC_QUOT,    KC_Z,  KC_EQL,
            KC_W,    LFT_GUI, LFT_ALT, LFT_CTL, LFT_SFT,    KC_B,                         KC_COMMA, RGT_SFT, RGT_CTL, RGT_ALT, RGT_GUI,    KC_J,
-        TO(DVORAK),    KC_X,    KC_C,    KC_L,    KC_D,    KC_G,                         KC_MINUS,    KC_U,    KC_O,    KC_Y,    KC_K, KC_EXLM,
+        TO(QWERTY),    KC_X,    KC_C,    KC_L,    KC_D,    KC_G,                         KC_MINUS,    KC_U,    KC_O,    KC_Y,    KC_K, KC_EXLM,
                                   TT(NAVIGATION), QK_REP, TT(NUMBERS),             TT(SYMBOLS),  KC_SPC, TT(FUNCTIONS)
     ),
-    [DVORAK] = LAYOUT_split_3x6_3(
-        CW_TOGG, KC_QUOT, KC_COMMA,   KC_DOT,    KC_P,    KC_Y,                            KC_F,    KC_G,    KC_C,    KC_R,    KC_SLSH,  KC_EQL,
-        KC_MINUS, D_LFT_GUI,  D_LFT_ALT,  D_LFT_CTL, D_LFT_SFT,    KC_I,                            KC_D, D_RGT_SFT, D_RGT_CTL, D_RGT_ALT, D_RGT_GUI, KC_L,
-        TO(HANDS_DOWN), KC_SCLN,     KC_Q,     KC_J,    KC_K,    KC_X,                            KC_B,    KC_M,    KC_W,    KC_V,    KC_Z, KC_EXLM,
-                                TT(NAVIGATION), QK_REP, TT(NUMBERS),             TT(SYMBOLS),  KC_SPC, TT(FUNCTIONS)
-        ),
+    [QWERTY] = LAYOUT_split_3x6_3(
+                KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
+                KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+                KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, TG(QWERTY),
+                                  TT(NAVIGATION), QK_REP, TT(NUMBERS),                    TT(SYMBOLS),  KC_SPC, TT(FUNCTIONS)
+            ),
     [NUMBERS] = LAYOUT_split_3x6_3(
         _______, _______, KC_LCBR, KC_LPRN, KC_LBRC, _______,                          KC_PSLS,    KC_7,    KC_8,    KC_9, KC_PPLS, _______,
-        _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_COMMA,                         KC_PAST,    KC_4,    KC_5,    KC_6, KC_PMNS, KC_X,
-        _______, _______, KC_RCBR, KC_RPRN, KC_RBRC, _______,                           KC_EQL,    KC_1,    KC_2,    KC_3, KC_CIRC, KC_UNDS,
+        _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_COMMA,                         KC_PAST,    KC_4,    KC_5,    KC_6, KC_PMNS,    KC_Y,
+        _______,    KC_X, KC_RCBR, KC_RPRN, KC_RBRC, _______,                           KC_DOT,    KC_1,    KC_2,    KC_3, KC_CIRC, KC_UNDS,
                                             _______, _______, _______,         KC_DOT,  KC_SPC,    KC_0
     ),
     [SYMBOLS] = LAYOUT_split_3x6_3(
