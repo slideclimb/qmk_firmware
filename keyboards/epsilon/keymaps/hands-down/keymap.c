@@ -105,9 +105,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             _______,  KC_SPC, _______,        _______, _______, _______
     ),
     [NAVIGATION] = LAYOUT_split_3x6_3(
-        _______, _______, DEL_LIN,KC_PAUSE, KC_MUTE, KC_VOLU,                          _______, _______, KC_HOME,  KC_END,  KC_INS, _______,
-        KC_PSCR, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_VOLD,                           NAV_TO, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  KC_ENT,
-        _______,    UNDO,     CUT,    COPY,   PASTE, _______,                          _______, _______, KC_PGDN, KC_PGUP, _______, _______,
+        KC_BRIU, _______, DEL_LIN,KC_PAUSE, KC_MUTE, KC_VOLU,                          _______, _______, KC_HOME,  KC_END,  KC_INS, _______,
+        KC_BRID, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_VOLD,                           NAV_TO, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  KC_ENT,
+        KC_PSCR,    UNDO,     CUT,    COPY,   PASTE, _______,                          _______, _______, KC_PGDN, KC_PGUP, _______, _______,
                                             _______, _______, _______,        _______, _______, _______
     ),
     [FUNCTIONS] = LAYOUT_split_3x6_3(
