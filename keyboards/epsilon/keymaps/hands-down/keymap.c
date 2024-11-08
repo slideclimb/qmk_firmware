@@ -17,16 +17,16 @@
 #define RGT_ALT MT(MOD_LALT, KC_I)
 #define RGT_GUI MT(MOD_LGUI, KC_H)
 
-// dvorak home row mods
-#define D_LFT_GUI MT(MOD_LGUI, KC_A)
-#define D_LFT_ALT MT(MOD_LALT, KC_O)
-#define D_LFT_CTL MT(MOD_LCTL, KC_E)
-#define D_LFT_SFT MT(MOD_LSFT, KC_U)
+// qwerty home row mods
+#define Q_LFT_GUI MT(MOD_LGUI, KC_A)
+#define Q_LFT_ALT MT(MOD_LALT, KC_S)
+#define Q_LFT_CTL MT(MOD_LCTL, KC_D)
+#define Q_LFT_SFT MT(MOD_LSFT, KC_F)
 
-#define D_RGT_SFT MT(MOD_LSFT, KC_H)
-#define D_RGT_CTL MT(MOD_LCTL, KC_T)
-#define D_RGT_ALT MT(MOD_LALT, KC_N)
-#define D_RGT_GUI MT(MOD_LGUI, KC_S)
+#define Q_RGT_SFT MT(MOD_LSFT, KC_J)
+#define Q_RGT_CTL MT(MOD_LCTL, KC_K)
+#define Q_RGT_ALT MT(MOD_LALT, KC_L)
+#define Q_RGT_GUI MT(MOD_LGUI, KC_SCLN)
 
 // shortcuts
 #define OPN_DBG LALT(KC_5)
@@ -87,10 +87,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   TT(NAVIGATION), QK_REP, TT(NUMBERS),             TT(SYMBOLS),  KC_SPC, TT(FUNCTIONS)
     ),
     [QWERTY] = LAYOUT_split_3x6_3(
-                KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-                KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-                KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, TG(QWERTY),
-                                  TT(NAVIGATION), QK_REP, TT(NUMBERS),                    TT(SYMBOLS),  KC_SPC, TT(FUNCTIONS)
+                KC_TAB,      KC_Q,      KC_W,      KC_E,      KC_R,    KC_T,               KC_Y,      KC_U,      KC_I,      KC_O,      KC_P,    KC_BSPC,
+               KC_LCTL, Q_LFT_GUI, Q_LFT_ALT, Q_LFT_CTL, Q_LFT_SFT,    KC_G,               KC_H, Q_RGT_SFT, Q_RGT_CTL, Q_RGT_ALT, Q_RGT_GUI,    KC_QUOT,
+        TO(HANDS_DOWN),      KC_Z,      KC_X,      KC_C,      KC_V,    KC_B,               KC_N,      KC_M,   KC_COMM,    KC_DOT,   KC_SLSH, TG(QWERTY),
+                                            TT(NAVIGATION), QK_REP, TT(NUMBERS),      TT(SYMBOLS),  KC_SPC, TT(FUNCTIONS)
             ),
     [NUMBERS] = LAYOUT_split_3x6_3(
         _______, _______, KC_LCBR, KC_LPRN, KC_LBRC, _______,                          KC_PSLS,    KC_7,    KC_8,    KC_9, KC_PPLS, _______,
