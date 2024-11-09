@@ -57,7 +57,14 @@ enum combos {
     EU_DEL,
     LEFT_ESC,
     RIGHT_ESC,
-    THUMBS_MOUSE
+    THUMBS_MOUSE,
+
+    BASE_PRN_OPEN,
+    BASE_PRN_CLOSE,
+    BASE_BRC_OPEN,
+    BASE_BRC_CLOSE,
+    BASE_CBR_OPEN,
+    BASE_CBR_CLOSE,
 };
 
 const uint16_t PROGMEM sn_combo[] = {RGT_GUI, RGT_ALT, COMBO_END};
@@ -68,6 +75,12 @@ const uint16_t PROGMEM lesc_combo[] = {KC_F, KC_M, COMBO_END};
 const uint16_t PROGMEM resc_combo[] = {KC_Q, KC_QUOT, COMBO_END};
 const uint16_t PROGMEM mouse_combo[] = {QK_REP, KC_SPC, COMBO_END};
 
+const uint16_t PROGMEM prn_open_combo[] = {LFT_CTL, KC_M, COMBO_END};
+const uint16_t PROGMEM prn_close_combo[] = {RGT_CTL, KC_Q, COMBO_END};
+const uint16_t PROGMEM brc_open_combo[] = {LFT_SFT, KC_P, COMBO_END};
+const uint16_t PROGMEM brc_close_combo[] = {RGT_SFT, KC_DOT, COMBO_END};
+const uint16_t PROGMEM cbr_open_combo[] = {LFT_ALT, KC_F, COMBO_END};
+const uint16_t PROGMEM cbr_close_combo[] = {RGT_ALT, KC_QUOT, COMBO_END};
 
 combo_t key_combos[] = {
     [SN_ENTER] = COMBO(sn_combo, KC_ENT),
@@ -77,6 +90,12 @@ combo_t key_combos[] = {
     [LEFT_ESC] = COMBO(lesc_combo, KC_ESC),
     [RIGHT_ESC] = COMBO(resc_combo, KC_ESC),
     [THUMBS_MOUSE] = COMBO(mouse_combo, TG(MOUSE)),
+    [BASE_PRN_OPEN] = COMBO(prn_open_combo, KC_LPRN),
+    [BASE_PRN_CLOSE] = COMBO(prn_close_combo, KC_RPRN),
+    [BASE_BRC_OPEN] = COMBO(brc_open_combo, KC_LBRC),
+    [BASE_BRC_CLOSE] = COMBO(brc_close_combo, KC_RBRC),
+    [BASE_CBR_OPEN] = COMBO(cbr_open_combo, KC_LCBR),
+    [BASE_CBR_CLOSE] = COMBO(cbr_close_combo, KC_RCBR),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
