@@ -50,6 +50,11 @@ enum layers {
     MOUSE
 };
 
+enum custom_keycodes {
+    AB_SQRT = SAFE_RANGE,
+    AB_FRAC,
+};
+
 enum combos {
     SN_ENTER,
     TH_BSPC,
@@ -98,6 +103,22 @@ combo_t key_combos[] = {
     [BASE_CBR_CLOSE] = COMBO(cbr_close_combo, KC_RCBR),
 };
 
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case AB_SQRT:
+            if (record->event.pressed) {
+                SEND_STRING("sqrt");
+            }
+            break;
+        case AB_FRAC:
+            if (record->event.pressed) {
+                SEND_STRING("frac");
+            }
+            break;
+    }
+    return true;
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [HANDS_DOWN] = LAYOUT_split_3x6_3(
            CW_TOGG, KC_SCLN,    KC_F,    KC_M,    KC_P,    KC_V,                          KC_SLSH,  KC_DOT,    KC_Q, KC_QUOT,    KC_Z,  KC_EQL,
@@ -112,9 +133,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             TT(NAVIGATION), QK_REP, TT(NUMBERS),      TT(SYMBOLS),  KC_SPC, TT(FUNCTIONS)
             ),
     [NUMBERS] = LAYOUT_split_3x6_3(
-        _______, _______, KC_LCBR, KC_LPRN, KC_LBRC, _______,                          KC_PSLS,    KC_7,    KC_8,    KC_9, KC_PPLS, _______,
+        _______, _______, _______, _______, _______, _______,                          KC_PSLS,    KC_7,    KC_8,    KC_9, KC_PPLS, _______,
         _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_COMMA,                         KC_PAST,    KC_4,    KC_5,    KC_6, KC_PMNS,    KC_Y,
-        _______,    KC_X, KC_RCBR, KC_RPRN, KC_RBRC, _______,                           KC_DOT,    KC_1,    KC_2,    KC_3, KC_CIRC, KC_UNDS,
+        _______,    KC_X, AB_SQRT, AB_FRAC, _______, _______,                           KC_DOT,    KC_1,    KC_2,    KC_3, KC_CIRC, KC_UNDS,
                                             _______, _______, _______,         KC_DOT,  KC_SPC,    KC_0
     ),
     [SYMBOLS] = LAYOUT_split_3x6_3(
