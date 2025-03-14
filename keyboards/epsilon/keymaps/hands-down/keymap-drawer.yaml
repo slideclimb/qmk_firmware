@@ -1,10 +1,11 @@
 # Paste this yaml into https://keymap-drawer.streamlit.app/ to generate layout image.
-layout: {qmk_keyboard: epsilon, qmk_layout: LAYOUT_split_3x6_3}
+layout:
+  ortho_layout: {split: true, rows: 3, columns: 6, thumbs: 3}
 layers:
   HANDS_DOWN:
     - [CAPS_WORD, {t: ;, s: ':'}, F, M, P, V, {t: /, s: '?'}, {t: ., s: '>'}, Q, {t: '''', s: '"'}, Z, {t: '=', s: '+'}]
     - [W, {t: R, h: LGUI}, {t: S, h: LALT}, {t: N, h: LCTL}, {t: T, h: LSFT}, B, {t: ',', s: '<'}, {t: A, h: LSFT}, {t: E, h: LCTL}, {t: I, h: LALT}, {t: H, h: LGUI}, J]
-    - [TO(DVORAK), X, C, L, D, G, {t: '-', s: '_'}, U, O, Y, K, '!']
+    - [TO(QWERTY), X, C, L, D, G, {t: '-', s: '_'}, U, O, Y, K, '!']
     - [TT(NAVIGATION), REPEAT, TT(NUMBERS),  TT(SYMBOLS), ␣, TT(FUNCTIONS)]
   NAVIGATION:
     - ['', '', DEL_LINE, PAUSE, MUTE, VOL_UP, '', '', HOME, END, INS, '']
@@ -32,10 +33,16 @@ layers:
     - ['', '', '', '', MID_CLK, '', '', '', '', '', '', '']
     - ['', '', '', '', '', '']
 combos:
-  - { p: [2, 3], k: ESC, l: [HANDS_DOWN, DVORAK, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
-  - { p: [8, 9], k: ESC, l: [HANDS_DOWN, DVORAK, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
-  - { p: [13, 14], k: TAB, l: [HANDS_DOWN, DVORAK, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
-  - { p: [15, 16], k: DEL, l: [HANDS_DOWN, DVORAK, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
-  - { p: [19, 20], k: BSPC, l: [HANDS_DOWN, DVORAK, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
-  - { p: [21, 22], k: ENT, l: [HANDS_DOWN, DVORAK, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
-  - { p: [37, 40], k: TG(MOUSE), l: [HANDS_DOWN, DVORAK, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [2, 3], k: ESC, l: [HANDS_DOWN, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [8, 9], k: ESC, l: [HANDS_DOWN, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [13, 14], k: TAB, l: [HANDS_DOWN, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [15, 16], k: DEL, l: [HANDS_DOWN, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [19, 20], k: BSPC, l: [HANDS_DOWN, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [21, 22], k: ENT, l: [HANDS_DOWN, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [37, 40], k: TG(MOUSE), l: [HANDS_DOWN, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [2, 14], k: '{', l: [HANDS_DOWN, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [3, 15], k: '(', l: [HANDS_DOWN, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [4, 16], k: '[', l: [HANDS_DOWN, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [7, 19], k: ']', l: [HANDS_DOWN, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [8, 20], k: ')', l: [HANDS_DOWN, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
+  - { p: [9, 21], k: '}', l: [HANDS_DOWN, NAVIGATION, NUMBERS, SYMBOLS, FUNCTIONS] }
